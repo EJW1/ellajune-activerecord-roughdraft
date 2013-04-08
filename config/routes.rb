@@ -5,6 +5,7 @@ Ellajune::Application.routes.draw do
   devise_for :users
 
   resources :users
+  resources :links
   resources :pages
 
   root :to => "pages#index"

@@ -3,8 +3,8 @@
 <table>
   <tr>
     <th>User</th>
+    <th>Title</th>
     <th>Url</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -12,6 +12,7 @@
 <% @links.each do |link| %>
   <tr>
     <td><%= link.user_id %></td>
+    <td><%= link.title %></td>
     <td><%= link.url %></td>
     <td><%= link_to 'Show', link %></td>
     <td><%= link_to 'Edit', edit_link_path(link) %></td>
