@@ -15,6 +15,13 @@
   <%= @link.url %>
 </p>
 
+<h4>Comments:<h4>
+<div>
+  <% @link.comments.each do |comment| %>
+    <p><%= comment.message %></p>
+  <% end %>
+</div>
+
 <%= render 'comments/form' %>
 
 <%= link_to 'Edit', edit_link_path(@link) %> |
