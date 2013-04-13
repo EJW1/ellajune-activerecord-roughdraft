@@ -1,4 +1,7 @@
 Ellajune::Application.routes.draw do
+  resources :votes
+
+
   resources :comments
 
 
