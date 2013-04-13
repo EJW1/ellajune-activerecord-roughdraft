@@ -1,12 +1,7 @@
 Ellajune::Application.routes.draw do
   resources :votes
-
-
   resources :comments
-
-
   resources :links
-
 
   devise_for :users
 
