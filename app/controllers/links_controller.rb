@@ -27,7 +27,7 @@ class LinksController < ApplicationController
   # GET /links/new.json
   def new
     @link = Link.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @link }
@@ -35,8 +35,13 @@ class LinksController < ApplicationController
   end
 
   # GET /links/1/edit
-  def edit
+def edit
     @link = Link.find(params[:id])
+    if @link.user.id == current_user
+      current_user = @link.user
+    else
+      redirect_to :back, alert: "You are not authorized to edit this link."
+    end
   end
 
   # POST /links
