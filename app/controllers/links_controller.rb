@@ -35,12 +35,12 @@ class LinksController < ApplicationController
   end
 
   # GET /links/1/edit
-def edit
+  def edit
     @link = Link.find(params[:id])
     if @link.user.id == current_user
       current_user = @link.user
     else
-      redirect_to :back, alert: "You are not authorized to edit this link."
+      redirect_to :back, alert: "You can only edit links that you created."
     end
   end
 
@@ -80,11 +80,11 @@ def edit
   # DELETE /links/1.json
   def destroy
     @link = Link.find(params[:id])
-    @link.destroy
-
-    respond_to do |format|
-      format.html { redirect_to links_url }
-      format.json { head :no_content }
+    if @link.user.id == current_user
+      @link.destroy
+      redirect_to root_path
+    else
+      redirect_to :back, alert: "You can only delete links that you created."
     end
   end
 end
