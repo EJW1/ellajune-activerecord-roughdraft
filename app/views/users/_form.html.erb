@@ -6,9 +6,14 @@
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
+  <% end %>
       </ul>
     </div>
+
+  <%= f.fields_for :user_profile do |builder| %>
+    <%= render 'user_profile_fields', :f => builder %>
+  <% end %>
+
   <% end %>
 
   <div class="actions">

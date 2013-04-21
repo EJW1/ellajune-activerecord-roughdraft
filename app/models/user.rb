@@ -9,7 +9,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :email, :username
 
+  has_one :user_profile, :dependent => :destroy
   has_many :links
   has_many :comments
   has_many :votes
+
+  accepts_nested_attributes_for :user_profile, :allow_destroy => true
 end
