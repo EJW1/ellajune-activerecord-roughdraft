@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(setup_user(@user)) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,9 +10,22 @@
       </ul>
     </div>
 
-  <%= f.fields_for :user_profile do |builder| %>
-    <%= render 'user_profile_fields', :f => builder %>
-  <% end %>
+  <div>
+    <%= f.fields_for :user_profile do |ff| %>
+      <div>
+        <%= ff.label :name %>
+        <%= ff.text_field :name %>
+      </div>
+      <div>
+        <%= ff.label :location %>
+        <%= ff.text_field :location %>
+      </div>
+      <div>
+        <%= ff.label :birth_date %>
+        <%= ff.date_select :birth_date %>
+      </div>
+    <% end %>
+  </div>
 
   <% end %>
 

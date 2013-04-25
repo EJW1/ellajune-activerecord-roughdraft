@@ -1,16 +1,18 @@
 Ellajune::Application.routes.draw do
+  root :to => "pages#index"
 
   resources :votes
   resources :comments
   resources :links
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_scope :user do
+    root :to => "users#new"
+  end 
 
   resources :users
   resources :links
   resources :pages
-
-  root :to => "pages#index"
 
 
   # The priority is based upon order of creation:
