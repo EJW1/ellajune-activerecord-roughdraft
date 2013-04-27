@@ -12,6 +12,10 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div class="invisible">
+    <%= resource.build_user_profile %>
+  </div>
+
     <%= f.fields_for :user_profile do |ff| %>
       <div>
         <%= ff.label :name %>
