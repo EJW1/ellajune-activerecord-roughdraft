@@ -22,7 +22,7 @@
         <%= ff.text_field :location %></div>
       <div>
         <%= ff.label :birth_date %><br />
-        <%= ff.date_select :birth_date %></div>
+        <%= ff.date_select :birth_date, :start_year => 1908, :use_month_numbers => true, :order => [:day, :month, :year] %></div>
     <% end %>
 
   <div><%= f.submit "Sign up" %></div>
