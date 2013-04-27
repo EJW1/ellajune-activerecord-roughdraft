@@ -12,23 +12,17 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div class="invisible">
-    <%= resource.build_user_profile %>
-  </div>
-
+    <% resource.build_user_profile %>
     <%= f.fields_for :user_profile do |ff| %>
       <div>
-        <%= ff.label :name %>
-        <%= ff.text_field :name %>
-      </div>
+        <%= ff.label :name %><br />
+        <%= ff.text_field :name %></div>
       <div>
-        <%= ff.label :location %>
-        <%= ff.text_field :location %>
-      </div>
+        <%= ff.label :location %><br />
+        <%= ff.text_field :location %></div>
       <div>
-        <%= ff.label :birth_date %>
-        <%= ff.date_select :birth_date %>
-      </div>
+        <%= ff.label :birth_date %><br />
+        <%= ff.date_select :birth_date %></div>
     <% end %>
 
   <div><%= f.submit "Sign up" %></div>
