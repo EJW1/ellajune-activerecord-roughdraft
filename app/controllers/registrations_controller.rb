@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(params[:user])
     user_profile = @user.build_user_profile
-    if @user.save
+    if (@user.save && @user.user_profile.save)
       flash[:notice] = "You have signed up successfully."
       redirect_to root_url
     else

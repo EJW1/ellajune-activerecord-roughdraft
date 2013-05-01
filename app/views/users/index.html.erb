@@ -1,14 +1,19 @@
-<h1>Listing users</h1>
+<h1>EllaJune Family!</h1>
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Birthday</th>
+    <th>Email</th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
+    <td><%= user.user_profile.name %></td>
+    <td><%= user.user_profile.location %></td>
+    <td><%= user.user_profile.birth_date %></td>
+    <td><%= user.email %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
