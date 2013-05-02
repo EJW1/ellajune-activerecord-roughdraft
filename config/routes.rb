@@ -13,6 +13,7 @@ Ellajune::Application.routes.draw do
   resources :users
   resources :links
   resources :pages
+  resources :interests_tag
 
 
   # The priority is based upon order of creation:
