@@ -11,12 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502020753) do
+ActiveRecord::Schema.define(:version => 20130502053118) do
 
   create_table "comments", :force => true do |t|
     t.text     "message"
     t.integer  "user_id"
     t.integer  "link_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "interests_taggings", :force => true do |t|
+    t.integer  "user_profile_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "interests_tag_id"
+  end
+
+  add_index "interests_taggings", ["interests_tag_id"], :name => "index_interests_taggings_on_interests_tag_id"
+  add_index "interests_taggings", ["user_profile_id"], :name => "index_interests_taggings_on_user_profile_id"
+
+  create_table "interests_tags", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

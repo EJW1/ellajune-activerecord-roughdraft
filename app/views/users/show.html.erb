@@ -25,6 +25,10 @@
   <%= @user.user_profile.website %>
 </p>
 
+<p>
+  <b>Interests:</b>
+  <%= raw @user.user_profile.interests_tags.map(&:name).map { |t| link_to t, interests_tag_path(t) }.join(', ') %>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
