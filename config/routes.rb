@@ -10,10 +10,14 @@ Ellajune::Application.routes.draw do
     root :to => "users#new"
   end 
 
-  resources :users
+  resources :users do
+    resources :user_profiles
+  end
   resources :links
   resources :pages
   resources :interests_tag
+    get 'interests_tags/:interests_tag', to: 'user_profiles#index', as: :interests_tag
+
 
 
   # The priority is based upon order of creation:
