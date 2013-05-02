@@ -6,6 +6,7 @@
     <th>Location</th>
     <th>Birthday</th>
     <th>Email</th>
+    <th>Website</th>
   </tr>
 
 <% @users.each do |user| %>
@@ -14,6 +15,7 @@
     <td><%= user.user_profile.location %></td>
     <td><%= user.user_profile.birth_date %></td>
     <td><%= user.email %></td>
+    <td><%= user.user_profile.website %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

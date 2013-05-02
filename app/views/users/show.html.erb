@@ -20,6 +20,11 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <b>Website:</b>
+  <%= @user.user_profile.website %>
+</p>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
