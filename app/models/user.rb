@@ -15,4 +15,20 @@ class User < ActiveRecord::Base
   has_many :votes
 
   accepts_nested_attributes_for :user_profile, :allow_destroy => true
+
+  #Messages
+  has_many :sent_messages,
+    :class_name => 'Message',
+    :primary_key=>'user_id',
+    :foreign_key => 'sender_id',
+    :order => "messages.created_at DESC",
+    :conditions => ["messages.sender_deleted = ?", false]
+
+  has_many :received_messages,
+    :class_name => 'Message',
+    :primary_key=>'user_id',
+    :foreign_key => 'recepient_id',
+    :order => "messages.created_at DESC",
+    :conditions => ["messages.recepient_deleted = ?", false]
+
 end

@@ -13,6 +13,15 @@ Ellajune::Application.routes.draw do
   resources :users do
     resources :user_profiles
   end
+
+    resources :users do |user|
+    resources :messages do
+      collection do
+        post 'delete_multiple'
+      end
+    end
+  end
+  
   resources :links
   resources :pages
   resources :interests_tag
