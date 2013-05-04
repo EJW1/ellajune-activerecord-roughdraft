@@ -35,4 +35,12 @@ class User < ActiveRecord::Base
       Message.received_by(self)
     end
 
+    def self.search(search)
+      if search
+         joins(:user_profile).where('name LIKE ?', "%#{search}%")
+      else
+        find(:all)
+      end
+    end
+
 end
