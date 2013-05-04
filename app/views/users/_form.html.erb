@@ -10,20 +10,23 @@
       </ul>
     </div>
 
-  <div>
+    <% resource.build_user_profile unless resource.user_profile %>
     <%= f.fields_for :user_profile do |ff| %>
       <div>
-        <%= ff.label :name %>
-        <%= ff.text_field :name %>
-      </div>
+        <%= ff.label :name %><br />
+        <%= ff.text_field :name %></div>
       <div>
-        <%= ff.label :location %>
-        <%= ff.text_field :location %>
-      </div>
+        <%= ff.label :location %><br />
+        <%= ff.text_field :location %></div>
       <div>
-        <%= ff.label :birth_date %>
-        <%= ff.date_select :birth_date %>
-      </div>
+        <%= ff.label :birth_date %><br />
+        <%= ff.date_select :birth_date, :start_year => 1908, :use_month_numbers => true, :order => [:day, :month, :year] %></div>
+      <div>
+        <%= ff.label :website %><br />
+        <%= ff.text_field :website %></div>
+      <div>
+        <%= ff.label :interests_tag_list, "Interests (separated by commas)" %><br />
+        <%= ff.text_field :interests_tag_list %></div>
     <% end %>
   </div>
 

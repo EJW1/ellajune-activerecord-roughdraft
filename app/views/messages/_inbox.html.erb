@@ -20,7 +20,7 @@
                   <%= link_to "#{h(message.subject)} (unread)", user_message_path(@user, message) %>
                 <% end %>
               </td>
-              <td><%= "#{message.sender.first_name} #{message.sender.last_name}" %></td>
+              <!td><#%= "#{message.sender.first_name} #{message.sender.last_name}" %><!/td>
                   <td><%=h message.created_at.to_s(:long) %></td>
             </tr>
       <% end %>

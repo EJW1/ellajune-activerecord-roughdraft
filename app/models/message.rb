@@ -22,7 +22,7 @@ class Message < ActiveRecord::Base
     # Read message and if it is read by recepient then mark it is read
     def self.readingmessage(id, reader)
       message = find(id, :conditions => ["sender_id = ? OR recepient_id = ?", reader, reader])
-      if message.read_at.nil? && (message.recepient.user_id==reader)
+      if message.read_at.nil? && (message.recepient.beamer_id==reader)
         message.read_at = Time.now
         message.save!
       end
