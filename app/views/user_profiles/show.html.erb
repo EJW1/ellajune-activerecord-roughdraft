@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user_profile.name %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @user_profile.location %>
+</p>
+
+<p>
+  <b>Birthday:</b>
+  <%= @user_profile.birth_date %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user_profile.user.email %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @user_profile.website %>
+</p>
+
+<p>
+  <b>Interests:</b>
+  <%= raw @user_profile.interests_tags.map(&:name).map { |t| link_to t, interests_tag_path(t) }.join(', ') %>
+</p>

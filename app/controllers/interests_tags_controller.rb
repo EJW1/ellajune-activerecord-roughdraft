@@ -1,0 +1,2 @@
+class InterestsTagsController < ApplicationController
+end
