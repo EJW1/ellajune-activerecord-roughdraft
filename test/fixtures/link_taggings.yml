@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  link_tag: 
+  user_profile: 
+
+two:
+  link_tag: 
+  user_profile: 
