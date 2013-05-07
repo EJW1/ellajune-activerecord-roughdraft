@@ -15,11 +15,11 @@ class Link < ActiveRecord::Base
       joins(:link_taggings).group("link_taggings.link_tag_id")
   end
   
-  def tag_list
+  def link_tag_list
     link_tags.map(&:name).join(", ")
   end
   
-  def tag_list=(names)
+  def link_tag_list=(names)
     self.link_tags = names.split(",").map do |n|
       LinkTag.where(name: n.strip).first_or_create!
     end
