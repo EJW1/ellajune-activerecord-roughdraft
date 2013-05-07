@@ -30,7 +30,8 @@ Ellajune::Application.routes.draw do
   resources :pages
   resources :interests_tag
     get 'interests_tags/:interests_tag', to: 'user_profiles#index', as: :interests_tag
-
+  resources :link_tag
+    get 'link_tags/:link_tag', to: 'links#index', as: :link_tag
 
 
   # The priority is based upon order of creation:
