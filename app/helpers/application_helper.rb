@@ -6,4 +6,12 @@ module ApplicationHelper
       yield(interests_tag, classes[index.round])
     end
   end
+
+    def link_tag_cloud(link_tags, classes)
+    max = link_tags.sort_by(&:count).last
+    link_tags.each do |link_tag|
+      index = link_tag.count.to_f / max.count * (classes.size - 1)
+      yield(link_tag, classes[index.round])
+    end
+  end
 end
