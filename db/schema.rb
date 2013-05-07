@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507181731) do
+ActiveRecord::Schema.define(:version => 20130507181954) do
 
   create_table "comments", :force => true do |t|
     t.text     "message"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(:version => 20130507181731) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "link_taggings", :force => true do |t|
+    t.integer  "link_tag_id"
+    t.integer  "user_profile_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "link_taggings", ["link_tag_id"], :name => "index_link_taggings_on_link_tag_id"
+  add_index "link_taggings", ["user_profile_id"], :name => "index_link_taggings_on_user_profile_id"
 
   create_table "link_tags", :force => true do |t|
     t.string   "name"
