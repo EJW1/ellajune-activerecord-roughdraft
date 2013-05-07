@@ -1,15 +1,12 @@
 Ellajune::Application.routes.draw do
   root :to => "pages#index"
 
-  resources :votes
-  resources :comments
-  resources :links
-
   devise_for :users, :controllers => {:registrations => "registrations"}
       as :user do
       get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
       put 'users' => 'devise/registrations#update', :as => 'user_registration'            
     end
+    
   devise_scope :user do
     root :to => "users#new"
   end 
@@ -26,6 +23,9 @@ Ellajune::Application.routes.draw do
     end
   end
   
+  resources :votes
+  resources :comments
+  resources :links
   resources :links
   resources :pages
   resources :interests_tag

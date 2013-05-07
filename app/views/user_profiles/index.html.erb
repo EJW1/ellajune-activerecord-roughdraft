@@ -18,6 +18,7 @@
     <td><%= user_profile.user.email %></td>
     <td><%= user_profile.website %></td>
     <td><%= raw user_profile.interests_tags.map(&:name).map { |t| link_to t, interests_tag_path(t) }.join(', ') %></td>
+    <td><%= link_to 'Show', user_profile.user %></td>
   </tr>
 <% end %>
 </table>
