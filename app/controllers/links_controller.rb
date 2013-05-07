@@ -3,11 +3,10 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @links }
+    if params[:link_tag]
+     @links = Link.tagged_with(params[:link_tag])
+    else
+     @links = Link.all
     end
   end
 
