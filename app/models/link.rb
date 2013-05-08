@@ -37,7 +37,7 @@ class Link < ActiveRecord::Base
   
   def link_tag_list=(names)
     self.link_tags = names.split(",").map do |n|
-      LinkTag.where(name: n.strip).first_or_create!
+      LinkTag.where(name: n.strip.downcase).first_or_create!
     end
   end
 end
