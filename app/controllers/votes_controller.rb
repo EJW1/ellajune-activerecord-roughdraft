@@ -40,8 +40,11 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    @vote = current_user.votes.create(params[:vote])
-    redirect_to :back
+    if current_user
+      @vote = current_user.votes.create(params[:vote])
+    else
+      redirect_to :back, alert: "You must sign in to vote"
+    end
   end
 
   # PUT /votes/1
