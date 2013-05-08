@@ -4,9 +4,9 @@ class LinksController < ApplicationController
   # GET /links.json
   def index
     if params[:link_tag]
-     @links = Link.tagged_with(params[:link_tag])
+     @links = Link.tagged_with(params[:link_tag]).order('points DESC')
     else
-     @links = Link.all
+     @links = Link.order('points DESC')
     end
   end
 
