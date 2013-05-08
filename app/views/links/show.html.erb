@@ -16,6 +16,11 @@
 </p>
 
 <p>
+  <b>Votes:</b>
+  <%= @link.vote_count %>
+</p>
+
+<p>
   <b>Tags:</b>
   <%= raw @link.link_tags.map(&:name).map { |t| link_to t, link_tag_path(t) }.join(', ') %>
 </p>
