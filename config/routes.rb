@@ -1,5 +1,5 @@
 Ellajune::Application.routes.draw do
-  root :to => "pages#index"
+  root :to => "links#index"
 
   devise_for :users, :controllers => {:registrations => "registrations"}
       as :user do

@@ -17,7 +17,7 @@
 
 <p>
   <b>Tags:</b>
-  <%= raw link.link_tags.map(&:name).map { |t| link_to t, link_tag_path(t) }.join(', ') %>
+  <%= raw @link.link_tags.map(&:name).map { |t| link_to t, link_tag_path(t) }.join(', ') %>
 </p>
 
 <h4>Comments:<h4>

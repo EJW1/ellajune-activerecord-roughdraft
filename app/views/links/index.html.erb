@@ -1,11 +1,17 @@
-<h1>Listing links</h1>
+<h1>Links</h1>
+
+<% if current_user.present? %>
+  <%= link_to "Add a link", new_link_path %>
+<% end %>
 
 <table>
   <tr>
     <th>User</th>
     <th>Title</th>
     <th>Url</th>
-    <th>Tags</th>
+    <th></th>
+    <th></th>
+    <th></th>
     <th></th>
   </tr>
 
@@ -14,8 +20,10 @@
     <td><%= link.user_id %></td>
     <td><%= link.title %></td>
     <td><%= link.url %></td>
+    <td><%= link_to 'Comments', link %></td>
+    <td><%= link.votes.count %></td>
+    <td><%= link_to '+1', votes_path(:vote => {:link_id => link.id}), :method => :post %></td>
     <td><%= raw link.link_tags.map(&:name).map { |t| link_to t, link_tag_path(t) }.join(', ') %></td>
-    <td><%= link_to 'Show', link %></td>
     <td><%= link_to 'Edit', edit_link_path(link) %></td>
     <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -23,5 +31,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Link', new_link_path %>
