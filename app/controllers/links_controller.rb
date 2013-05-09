@@ -5,7 +5,7 @@ class LinksController < ApplicationController
   def index
     Link.update_points
     if params[:search]
-      @link = Link.search(params[:search]).order('points DESC')
+      @link = Link.search(params[:search])
     elsif params[:link_tag]
       @links = Link.tagged_with(params[:link_tag]).order('points DESC')
     else
