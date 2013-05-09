@@ -33,7 +33,7 @@
 </table>
 
 <div id="tag_cloud">
-  <% tag_cloud UserProfile.tag_counts, %w{s m l} do |interests_tag, css_class| %>
+  <% tag_cloud User.user_profiles.tag_counts, %w{s m l} do |interests_tag, css_class| %>
     <%= link_to interests_tag.name, interests_tag_path(interests_tag.name), class: css_class %>
   <% end %>
 </div>
