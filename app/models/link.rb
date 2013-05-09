@@ -27,7 +27,7 @@ class Link < ActiveRecord::Base
   end
 
   def self.tag_counts
-    LinkTag.select("tags.*, count(link_taggings.link_tag_id) as count").
+    LinkTag.select("link_tags.*, count(link_taggings.link_tag_id) as count").
       joins(:link_taggings).group("link_taggings.link_tag_id")
   end
   
