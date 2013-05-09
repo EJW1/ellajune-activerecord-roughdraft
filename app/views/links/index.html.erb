@@ -38,8 +38,8 @@
 <% end %>
 </table>
 
-<div id="tag_cloud">
-  <% tag_cloud Link.tag_counts, %w{s m l} do |link_tag, css_class| %>
+<div id="link_tag_cloud">
+  <% link_tag_cloud Link.tag_counts, %w{s m l} do |link_tag, css_class| %>
     <%= link_to link_tag.name, link_tag_path(link_tag.name), class: css_class %>
   <% end %>
 </div>
