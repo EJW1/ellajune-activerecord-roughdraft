@@ -34,4 +34,8 @@
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<div id="interests_tag_cloud">
+  <% interests_tag_cloud UserProfile.tag_counts, %w{s m l} do |interests_tag, css_class| %>
+    <%= link_to interests_tag.name, interests_tag_path(interests_tag.name), class: css_class %>
+  <% end %>
+</div>
