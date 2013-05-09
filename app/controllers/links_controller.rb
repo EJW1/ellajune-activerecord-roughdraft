@@ -4,10 +4,12 @@ class LinksController < ApplicationController
   # GET /links.json
   def index
     Link.update_points
-    if params[:link_tag]
-     @links = Link.tagged_with(params[:link_tag]).order('points DESC')
+    if params[:search]
+      @link = Link.search(params[:search]).order('points DESC')
+    elsif params[:link_tag]
+      @links = Link.tagged_with(params[:link_tag]).order('points DESC')
     else
-     @links = Link.order('points DESC')
+      @links = Link.order('points DESC')
     end
   end
 

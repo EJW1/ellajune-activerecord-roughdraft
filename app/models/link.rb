@@ -40,4 +40,13 @@ class Link < ActiveRecord::Base
       LinkTag.where(name: n.strip.downcase).first_or_create!
     end
   end
+
+#Search
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['title LIKE ? OR url LIKE ?', "%#{search}%", "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
 end
