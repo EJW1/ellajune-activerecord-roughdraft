@@ -7,12 +7,12 @@
 
 <p>
   <b>User:</b>
-  <%= @comment.user_id %>
+  <%= @comment.user.user_profile.name %>
 </p>
 
 <p>
   <b>Link:</b>
-  <%= @comment.link_id %>
+  <%= @comment.link.title %>
 </p>
 
 
