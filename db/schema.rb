@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(:version => 20130508212846) do
     t.datetime "updated_at",                             :null => false
     t.string   "sender_id"
     t.string   "recepient_id"
-    t.boolean  "sender_deleted",    :default => false
-    t.boolean  "recepient_deleted", :default => false
+    t.boolean  "sender_deleted"
+    t.boolean  "recepient_deleted"
     t.string   "container",         :default => "draft"
   end
 
