@@ -14,9 +14,3 @@ test:
   database: ellajune_test
   pool: 5
   username: erickaward
-
-production:
-  adapter: web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
-  database: ellajune_production
-  pool: 5
-  timeout: 5000
