@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508212846) do
+ActiveRecord::Schema.define(:version => 20130517180649) do
 
   create_table "comments", :force => true do |t|
     t.text     "message"
@@ -60,19 +60,6 @@ ActiveRecord::Schema.define(:version => 20130508212846) do
     t.datetime "updated_at", :null => false
     t.string   "title"
     t.integer  "points"
-  end
-
-  create_table "messages", :force => true do |t|
-    t.string   "subject"
-    t.text     "body"
-    t.datetime "read_at"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "sender_id"
-    t.string   "recepient_id"
-    t.boolean  "sender_deleted"
-    t.boolean  "recepient_deleted"
-    t.string   "container",         :default => "draft"
   end
 
   create_table "user_profiles", :force => true do |t|

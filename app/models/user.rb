@@ -16,25 +16,6 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_profile, :allow_destroy => true
 
-  #Messages
-  has_many :sent_messages,
-    :class_name => 'Message',
-    :primary_key=>'id',
-    :foreign_key => 'sender_id',
-    :order => "messages.created_at DESC",
-    :conditions => ["messages.sender_deleted = ?", false]
-
-  #has_many :received_messages,
-    #:class_name => 'Message',
-    #:primary_key=>'id',
-    #:foreign_key => 'recepient_id',
-    #:order => "messages.created_at DESC",
-    #:conditions => ["messages.recepient_deleted = ?", false]
-
-    def received_messages
-      Message.received_by(self)
-    end
-
     def self.search(search)
       if search
          joins(:user_profile).where('name LIKE ?', "%#{search}%")
