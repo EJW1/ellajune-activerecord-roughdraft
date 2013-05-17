@@ -9,8 +9,8 @@ class UserProfile < ActiveRecord::Base
   end
 
   def self.tag_counts
-    InterestsTag.select("interests_tags.*, count(interests_taggings.interests_tag_id) as count").
-      joins(:interests_taggings).group("interests_taggings.interests_tag_id")
+    InterestsTag.select("interests_tags.id, interests_tags.name, count(interests_taggings.interests_tag_id) as count").
+      joins(:interests_taggings).group("interests_taggings.interests_tag_id, interests_tags.id, interests_tags.name")
   end
   
   def interests_tag_list
