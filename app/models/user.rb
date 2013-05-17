@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
       end
     end
 
+    def name
+      user_profile.name
+    end
+
 end
