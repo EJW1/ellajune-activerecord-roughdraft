@@ -9,10 +9,15 @@ module ApplicationHelper
   end
 
   def link_tag_cloud(link_tags, classes)
-    max = link_tags.sort_by(&:count).last
+    max = 0
+    link_tags.each do |t|
+      if t.count.to_i > max
+        max = t.count.to_i
+      end 
+    end
     link_tags.each do |link_tag|
-      index = link_tag.count.to_f / max.count * (classes.size - 1)
+      index = link_tag.count.to_f / max * (classes.size - 1)
       yield(link_tag, classes[index.round])
     end
-  end
+  end 
 end
