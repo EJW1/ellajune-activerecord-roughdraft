@@ -30,14 +30,4 @@ class User < ActiveRecord::Base
       user_profile.name
     end
 
-    #Returning the email address of the model if an email should be sent for this object (Message or Notification).
-    #If no mail has to be sent, return nil.
-    #def mailboxer_email(object)
-    #Check if an email should be sent for that object
-      #if true
-        #return "define_email@on_your.model"
-      #if false
-        #return nil
-    #end
-
 end
